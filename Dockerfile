@@ -1,12 +1,14 @@
-FROM php:7.4
+FROM php:latest
 
 # Install Git
 RUN apt-get update && \
     apt-get install -y git
 
-# Install Apache
+
+
+# Install Apache and PHP module
 RUN apt-get update && \
-    apt-get install -y apache2
+    apt-get install -y apache2 libapache2-mod-fcgid
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/*
